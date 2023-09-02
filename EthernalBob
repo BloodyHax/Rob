@@ -40,6 +40,18 @@ General1:NewToggle("Anti Void", "create a giga part on the map", function(state)
     end
 end)
 
+General1:NewButton("Auto Tycoon", "gg ez", function()
+_G.AutoTycoon = true
+while _G.AutoTycoon do
+    for i,v in pairs(workspace:GetDescendants()) do
+        if v.Name == "Click" and v:FindFirstChild("ClickDetector") then
+            fireclickdetector(v.ClickDetector)
+        end
+    end
+    task.wait()
+end
+end)
+
 General1:NewKeybind("Panic", "Teleports to safezone", Enum.KeyCode.F, function()
 	game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-1.95300472, 133.499954, -34.945755, 1, 6.71154154e-08, 1.78947937e-06, -6.71153018e-08, 1, -6.41212097e-08, -1.78947937e-06, 6.41210889e-08, 1)
 end)
@@ -112,7 +124,7 @@ General1:NewButton("Remove ShakeScreen", "no more anoying screen", function()
 game:GetService("Players").LocalPlayer.PlayerScripts.Screenshake:Destroy()
 end)
 
-General1:NewKeybind("Remove void", "more time to get to safe", Enum.KeyCode.F, function()
+General1:NewButton("Remove void", "more time to get to safe", Enum.KeyCode.F, function()
 	game.Workspace.TheVoid:Destroy()
 end)
 
